@@ -1,0 +1,6 @@
+framework module PushToUnlock {
+  umbrella header "PushToUnlock-umbrella.h"
+
+  export *
+  module * { export * }
+}

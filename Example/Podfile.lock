@@ -1,0 +1,16 @@
+PODS:
+  - PushToUnlock (0.1.0)
+
+DEPENDENCIES:
+  - PushToUnlock (from `../`)
+
+EXTERNAL SOURCES:
+  PushToUnlock:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  PushToUnlock: 13601f72be5b379468fa97f5c4d107c6f7bc9f1f
+
+PODFILE CHECKSUM: 874d6f4604dd015306e7934e7dcc0e8cbabf6f3d
+
+COCOAPODS: 1.11.3
