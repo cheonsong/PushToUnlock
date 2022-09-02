@@ -16,7 +16,7 @@
 		9113D405F19BCB3053299E2AEB1AFCB9 /* PushToUnlock-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFB12440AD01461C9EF92F45CF902A1 /* PushToUnlock-dummy.m */; };
 		972591446958EB6EA603D58DC4DD753F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 		BF5DC501B1875F716C5C011F82304D7A /* Pods-PushToUnlock_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = ACD7314A44CBFF94CA0077EB3E521B35 /* Pods-PushToUnlock_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DDE2CBC981CB4B33BEAEC503B95BFBD9 /* ReplaceMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C724690497AED28348727E69BB913A /* ReplaceMe.swift */; };
+		DDE2CBC981CB4B33BEAEC503B95BFBD9 /* PushToUnlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C724690497AED28348727E69BB913A /* PushToUnlock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,11 +41,11 @@
 		133BF1117CE107A774594FBFA2F5D2D7 /* Pods-PushToUnlock_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PushToUnlock_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		265E8A2B4304EF33D98A381F02A6FBC8 /* Pods-PushToUnlock_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PushToUnlock_Example-dummy.m"; sourceTree = "<group>"; };
 		296C7E821874873AC6905E44275C2BE1 /* PushToUnlock.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PushToUnlock.debug.xcconfig; sourceTree = "<group>"; };
-		2C5E8FDA394A4325EC53CBECA833E924 /* PushToUnlock.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = PushToUnlock.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		2C5E8FDA394A4325EC53CBECA833E924 /* PushToUnlock.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = PushToUnlock.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		373E6F70C6A71F3F413FE8C6FAD7C92B /* Pods-PushToUnlock_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PushToUnlock_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		401BBCDB31EE0248B0E0B5EB676C3B5E /* Pods-PushToUnlock_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PushToUnlock_Tests-dummy.m"; sourceTree = "<group>"; };
-		41134C41078A048B57F1BC2ABE57741E /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
-		44C724690497AED28348727E69BB913A /* ReplaceMe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReplaceMe.swift; path = PushToUnlock/Classes/ReplaceMe.swift; sourceTree = "<group>"; };
+		41134C41078A048B57F1BC2ABE57741E /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		44C724690497AED28348727E69BB913A /* PushToUnlock.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PushToUnlock.swift; path = PushToUnlock/Classes/PushToUnlock.swift; sourceTree = "<group>"; };
 		46B7A844C585E3EE658FADC0F91535A8 /* Pods-PushToUnlock_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PushToUnlock_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		47BE53326FFCC4DFEEC8B5774BAEED2F /* PushToUnlock-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "PushToUnlock-Info.plist"; sourceTree = "<group>"; };
 		4C15C2BCBB5BEA6D4D0C99A96B64A95E /* Pods-PushToUnlock_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PushToUnlock_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -63,9 +63,9 @@
 		8AB8AA4271CBA6ADFA616C2536996300 /* Pods-PushToUnlock_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PushToUnlock_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		8BDC76280E26D1B755CFB22C588F2038 /* Pods-PushToUnlock_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PushToUnlock_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		8F98F75DF6B1B3540083C44097C3E74C /* PushToUnlock.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PushToUnlock.release.xcconfig; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		ACD7314A44CBFF94CA0077EB3E521B35 /* Pods-PushToUnlock_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PushToUnlock_Example-umbrella.h"; sourceTree = "<group>"; };
-		C766E2C19A2EEA798F5D3B249DB17919 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		C766E2C19A2EEA798F5D3B249DB17919 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		D25E6DDD4A44105325D56BD3EFB38A02 /* Pods-PushToUnlock_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PushToUnlock_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		D5EEA3FA0A4AF7E2BA68CB2A2C1926F4 /* Pods-PushToUnlock_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PushToUnlock_Example-frameworks.sh"; sourceTree = "<group>"; };
 		D7FB1A5E101749C47CA93B36A1F1654D /* Pods-PushToUnlock_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PushToUnlock_Example-Info.plist"; sourceTree = "<group>"; };
@@ -161,7 +161,7 @@
 		8D5DB4A28CB47B743E273C150AACD8C1 /* PushToUnlock */ = {
 			isa = PBXGroup;
 			children = (
-				44C724690497AED28348727E69BB913A /* ReplaceMe.swift */,
+				44C724690497AED28348727E69BB913A /* PushToUnlock.swift */,
 				25CF8445B82C97775C00E117950C9A2F /* Pod */,
 				82E0E75A590054D5DB44ECC647646677 /* Support Files */,
 			);
@@ -384,7 +384,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9113D405F19BCB3053299E2AEB1AFCB9 /* PushToUnlock-dummy.m in Sources */,
-				DDE2CBC981CB4B33BEAEC503B95BFBD9 /* ReplaceMe.swift in Sources */,
+				DDE2CBC981CB4B33BEAEC503B95BFBD9 /* PushToUnlock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,8 +495,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
