@@ -11,6 +11,9 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
+  - iOS 9.0+
+  - Swift 5.0
+  
 ## Installation
 
 PushToUnlock is available through [CocoaPods](https://cocoapods.org). To install
@@ -19,6 +22,16 @@ it, simply add the following line to your Podfile:
 ```ruby
 pod 'PushToUnlock'
 ```
+
+## Properties
+
+| Property                                                | Explanation                                          | Default Value      |
+| ------------------------------------------- | ------------------------------------------ | :-----------------: |
+```text      : String``` | Text Property | "" |
+```textColor : UIColor``` | TextColor Property | UIColor.white |
+```textFont  : UIFont``` | TextFont Property | UIFont.systemFont.(of:18) |
+```background: UIColor``` | Backgound Color | UIColor.gray |
+```tint      : UIColor``` | Swipe Button Color | UIColor.red |
 
 ## Author
 
