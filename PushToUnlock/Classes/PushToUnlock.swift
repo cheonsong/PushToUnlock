@@ -1,18 +1,83 @@
 import UIKit
 import Foundation
 import RxSwift
-import RxCocoa
 
 public class PushToUnlock: UIView {
-        let disposeBag = DisposeBag()
     
+    /// Rx EventHandler
+    public var isSuccess = PublishSubject<Void>()
+    /// Closure EventHandler
+    public var completion: (()->Void)? = nil
+    /// Text Property
+    public var text: String {
+        get {
+            return textLabel.text ?? ""
+        }
+        
+        set {
+            textLabel.text = newValue
+        }
+    }
+    /// TextColor Property
+    public var textColor: UIColor {
+        get {
+            return textLabel.textColor
+        }
+        
+        set {
+            textLabel.textColor = newValue
+        }
+    }
+    /// TextFont Property
+    public var textFont: UIFont {
+        get {
+            return textLabel.font
+        }
+        
+        set {
+            textLabel.font = newValue
+        }
+    }
+    /// Swipe Button Color
+    public var tint: UIColor {
+        get {
+            return swipeView.backgroundColor ?? .clear
+        }
+        
+        set {
+            swipeView.backgroundColor = newValue
+        }
+    }
+    /// Backgound Color
+    public var background: UIColor {
+        get {
+            return backgroundView.backgroundColor ?? .clear
+        }
+        
+        set {
+            backgroundView.backgroundColor = newValue
+        }
+    }
+    
+    /// Initializer
+    /// - Parameter width: The total width
+    /// - Parameter height: The total height
+    /// Background and SwipeButton spacing 4
+    public convenience init(width: CGFloat, height: CGFloat) {
+        self.init(frame: .zero)
+        
+        self.width = width
+        self.height = height
+        
+        addComponents()
+        setConstraints()
+        bind()
+    }
     
     private var width: CGFloat = 240
     private var height: CGFloat = 64
-    
     private lazy var successCnt: CGFloat = width - height
-    // 스와이프 성공여부
-    public var isSuccess = PublishRelay<Void>()
+    private var disposeBag = DisposeBag()
     
     private lazy var backgroundView: UIView = {
         let view = UIView()
@@ -30,7 +95,7 @@ public class PushToUnlock: UIView {
     
     private lazy var textLabel: UILabel = {
         let label = UILabel()
-        label.text = "Push To Unlock"
+        label.text = ""
         label.font = .systemFont(ofSize: 18)
         label.textColor = .white
         return label
@@ -45,23 +110,13 @@ public class PushToUnlock: UIView {
         super.init(frame: frame)
     }
     
-    public convenience init(width: CGFloat, height: CGFloat) {
-        self.init(frame: .zero)
-        
-        self.width = width
-        self.height = height
-        
-        addComponents()
-        setConstraints()
-        bind()
-    }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     deinit {
-        
+        completion = nil
+        disposeBag = DisposeBag()
     }
     
     func addComponents() {
@@ -151,7 +206,7 @@ public class PushToUnlock: UIView {
     
     func bind() {
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(swipeAction(_:)))
-        self.addGestureRecognizer(panGesture)
+        swipeView.addGestureRecognizer(panGesture)
     }
     
     @objc func swipeAction(_ sender: UIPanGestureRecognizer) {
@@ -176,27 +231,29 @@ public class PushToUnlock: UIView {
             
         case .ended:
             if transX == self.successCnt {
-                self.isSuccess.accept(())
+                self.isSuccess.onNext(())
+                self.completion?()
                 return
             }
             // 빠른속도로 스와이프 한 경우 종료됨
             else if velocity.x > 1000 {
                 self.textLabel.isHidden = true
-                UIView.animate(withDuration: 0.3, animations: {
-                    self.constant.constant = self.successCnt
-                    self.layoutIfNeeded()
-                }, completion: { _ in
-                    self.isSuccess.accept(())
+                UIView.animate(withDuration: 0.3, animations: { [weak self] in
+                    self?.constant.constant = self!.successCnt
+                    self?.layoutIfNeeded()
+                }, completion: { [weak self] _ in
+                    self?.isSuccess.onNext(())
+                    self?.completion?()
                     return
                 })
             }
             // 종료 실패
             else {
-                UIView.animate(withDuration: 0.3, animations: {
-                    self.constant.constant = 0
-                    self.layoutIfNeeded()
-                }, completion: { _ in
-                    self.textLabel.isHidden = false
+                UIView.animate(withDuration: 0.3, animations: { [weak self] in
+                    self?.constant.constant = 0
+                    self?.layoutIfNeeded()
+                }, completion: { [weak self] _ in
+                    self?.textLabel.isHidden = false
                 })
             }
         default:
