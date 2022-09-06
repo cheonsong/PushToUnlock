@@ -1,8 +1,10 @@
 import UIKit
 import Foundation
+import RxSwift
+import RxCocoa
 
 public class PushToUnlock: UIView {
-    //    let disposeBag = DisposeBag()
+        let disposeBag = DisposeBag()
     
     
     private var width: CGFloat = 240
@@ -10,19 +12,19 @@ public class PushToUnlock: UIView {
     
     private lazy var successCnt: CGFloat = width - height
     // 스와이프 성공여부
-//    var isSuccess = PublishRelay<Bool>()
+    public var isSuccess = PublishRelay<Void>()
     
     private lazy var backgroundView: UIView = {
         let view = UIView()
         view.backgroundColor = .gray
-        view.layer.cornerRadius = 64 / 2
+        view.layer.cornerRadius = height / 2
         return view
     }()
     
     private lazy var swipeView: UIView = {
         let view = UIView()
         view.backgroundColor = .red
-        view.layer.cornerRadius = 56 / 2
+        view.layer.cornerRadius = (height - 8) / 2
         return view
     }()
     
@@ -39,15 +41,11 @@ public class PushToUnlock: UIView {
         return constant
     }()
     
-    override init(frame: CGRect) {
+    private override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        addComponents()
-        setConstraints()
-        bind()
     }
     
-    convenience init(width: CGFloat, height: CGFloat) {
+    public convenience init(width: CGFloat, height: CGFloat) {
         self.init(frame: .zero)
         
         self.width = width
@@ -74,6 +72,22 @@ public class PushToUnlock: UIView {
     }
     
     func setConstraints() {
+        NSLayoutConstraint.init(item: self,
+                                attribute: .height,
+                                relatedBy: .equal,
+                                toItem: nil,
+                                attribute: .height,
+                                multiplier: 1.0,
+                                constant: height).isActive = true
+        
+        NSLayoutConstraint.init(item: self,
+                                attribute: .width,
+                                relatedBy: .equal,
+                                toItem: nil,
+                                attribute: .width,
+                                multiplier: 1.0,
+                                constant: width).isActive = true
+        
         edgesEqualToSuperView(view: backgroundView)
         NSLayoutConstraint.init(item: backgroundView,
                                 attribute: .height,
@@ -119,12 +133,12 @@ public class PushToUnlock: UIView {
         constant.isActive = true
 
         NSLayoutConstraint.init(item: textLabel,
-                                attribute: .right,
+                                attribute: .centerX,
                                 relatedBy: .equal,
                                 toItem: backgroundView,
-                                attribute: .right,
+                                attribute: .centerX,
                                 multiplier: 1.0,
-                                constant: -40).isActive = true
+                                constant: height * 0.3).isActive = true
         
         NSLayoutConstraint.init(item: textLabel,
                                 attribute: .centerY,
@@ -162,7 +176,7 @@ public class PushToUnlock: UIView {
             
         case .ended:
             if transX == self.successCnt {
-//                self.isSuccess.accept(true)
+                self.isSuccess.accept(())
                 return
             }
             // 빠른속도로 스와이프 한 경우 종료됨
@@ -172,7 +186,7 @@ public class PushToUnlock: UIView {
                     self.constant.constant = self.successCnt
                     self.layoutIfNeeded()
                 }, completion: { _ in
-//                    self.isSuccess.accept(true)
+                    self.isSuccess.accept(())
                     return
                 })
             }

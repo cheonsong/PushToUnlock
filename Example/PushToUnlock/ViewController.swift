@@ -7,18 +7,51 @@
 //
 
 import UIKit
+import PushToUnlock
+import RxSwift
 
 class ViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        // Set UI
+        let button = PushToUnlock(width: 200, height: 50)
+        view.addSubview(button)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Set Constraints
+        NSLayoutConstraint.init(item: button,
+                                attribute: .centerX,
+                                relatedBy: .equal,
+                                toItem: self.view,
+                                attribute: .centerX,
+                                multiplier: 1.0,
+                                constant: 0).isActive = true
+        
+        NSLayoutConstraint.init(item: button,
+                                attribute: .centerY,
+                                relatedBy: .equal,
+                                toItem: self.view,
+                                attribute: .centerY,
+                                multiplier: 1.0,
+                                constant: 0).isActive = true
+        
+        // Binding
+        let disposeBag = DisposeBag()
+        
+        button.isSuccess
+            .bind(onNext: {
+                print("Success")
+                // add code...
+            })
+            .disposed(by: disposeBag)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
 }
 

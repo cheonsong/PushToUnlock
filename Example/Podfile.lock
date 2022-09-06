@@ -1,15 +1,32 @@
 PODS:
-  - PushToUnlock (0.1.0)
+  - PushToUnlock (0.1.0):
+    - RxCocoa
+    - RxSwift
+  - RxCocoa (6.5.0):
+    - RxRelay (= 6.5.0)
+    - RxSwift (= 6.5.0)
+  - RxRelay (6.5.0):
+    - RxSwift (= 6.5.0)
+  - RxSwift (6.5.0)
 
 DEPENDENCIES:
   - PushToUnlock (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - RxCocoa
+    - RxRelay
+    - RxSwift
 
 EXTERNAL SOURCES:
   PushToUnlock:
     :path: "../"
 
 SPEC CHECKSUMS:
-  PushToUnlock: 13601f72be5b379468fa97f5c4d107c6f7bc9f1f
+  PushToUnlock: 5456983acfe961e049b249adbbbcc7fc896df657
+  RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
+  RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
+  RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
 
 PODFILE CHECKSUM: 874d6f4604dd015306e7934e7dcc0e8cbabf6f3d
 
